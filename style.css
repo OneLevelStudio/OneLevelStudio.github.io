@@ -4,7 +4,7 @@
     padding: 0;
     margin: 0;
     transition: all ease 0.5s;
-    font-family: 'Inter', 'Roboto', sans-serif;
+    font-family: 'Space Grotesk', 'Inter', 'Roboto', sans-serif;
     color: white;
 }
 
@@ -111,6 +111,15 @@
 }
 
 /*  */
+#overlay-unity {
+    z-index: 3;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 20px;
+}
+
+/*  */
 
 #overlay-video {
     z-index: 3;
@@ -122,8 +131,8 @@
 #overlay-video video {
     z-index: 4;
     position: absolute;
-    top: calc((100vh - 540px)/2);
-    left: calc((100vw - 960px)/2);
+    top: calc((100vh - 495px)/2);
+    left: calc((100vw - 880px)/2);
     height: 100vh;
     width: 100vw;
     opacity: 0.0;
@@ -158,6 +167,16 @@
     /* background: rgba(245, 222, 179, 0.418); */
 }
 
+@keyframes btn-hover-vid-anim {
+    from {
+        background: rgba(255, 255, 255, 0);
+    }
+
+    to {
+        background: rgba(255, 255, 255, 0.3);
+    }
+}
+
 #overlay-video #btn-hover-vid-wrap #btn-hover-vid {
     z-index: 4;
     position: absolute;
@@ -169,10 +188,12 @@
     /* background: white; */
     border: solid 2px white;
     cursor: crosshair;
+    animation: btn-hover-vid-anim 1s ease-in-out infinite alternate;
+    animation-delay: 10s;
 }
 
 #overlay-video #btn-hover-vid-wrap #btn-hover-vid:hover {
-    background: white;
+    background: white !important;
 }
 
 /*  */
