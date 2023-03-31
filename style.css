@@ -1,251 +1,69 @@
+:root {
+    --color-bg: hsl(0, 0%, 10%);
+    --color-tx: hsl(0, 0%, 90%);
+    --color-lk: hsl(0, 0%, 90%);
+    --color-lk-hover: hsl(0, 0%, 50%);
+}
+
 * {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    padding: 0;
-    margin: 0;
-    transition: all ease 0.5s;
-    font-family: 'Space Grotesk', 'Inter', 'Roboto', sans-serif;
-    color: white;
+    font-family: "Space Grotesk";
 }
 
-.desktop-only {
-    display: block;
-}
-
-@media only screen and (max-width: 1000px) {
-    .desktop-only {
-        display: none !important;
-    }
-}
-
-.mobile-only {
-    display: block;
-}
-
-@media only screen and (min-width: 1000px) {
-    .mobile-only {
-        display: none !important;
-    }
-}
-
-::selection {
-    /* color: rgb(255, 255, 255); */
-    background: rgba(0, 0, 0, 0);
-}
-
-#overlay-content {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 100vw;
-    background-image: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.7),
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0.1),
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.7));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 60px;
-    backdrop-filter: blur(12px);
-}
-
-#overlay-esrb {
-    z-index: 3;
-    background: rgba(245, 222, 179, 0.0);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 140px;
-    width: 500px;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-}
-
-#overlay-esrb img {
-    height: 100px;
-    margin-right: 20px;
-    border-radius: 4px;
-}
-
-#overlay-platforms {
-    z-index: 3;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    /* background: white; */
-    display: flex;
-    flex-direction: row;
-    margin: 20px;
-}
-
-#overlay-platforms p {
-    color: rgb(80, 80, 80);
-    text-align: center;
-    font-size: 12px;
-}
-
-#overlay-platforms img {
-    width: 120px;
-    height: 64px;
-    /* background: wheat; */
-    object-fit: contain;
-}
-
-#overlay-platforms .pl-group {
-    background: rgba(255, 255, 255, 0.7);
-    margin-left: 20px;
+img,
+video {
     border-radius: 8px;
-    padding: 12px 12px 0px 12px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }
 
-#overlay-platforms .pl-group:hover {
-    background: rgba(255, 255, 255, 1.0);
+h2 {
+    font-size: 3rem;
+    position: relative;
 }
 
-/*  */
-#overlay-unity {
-    z-index: 3;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    padding: 20px;
-}
-
-/*  */
-
-#overlay-video {
-    z-index: 3;
+h2::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0.6rem;
+    left: -0.4rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: gold;
 }
 
-#overlay-video video {
-    z-index: 4;
-    position: absolute;
-    top: calc((100vh - 495px)/2);
-    left: calc((100vw - 880px)/2);
-    height: 100vh;
-    width: 100vw;
-    opacity: 0.0;
-}
-
-#overlay-video #btn-hover-vid-text {
-    z-index: 4;
-    position: absolute;
-    top: 32px;
-    left: calc(100vw - 20px - 50px - 200px - 15px);
-    width: 200px;
-    text-align: right;
-    font-size: 16px;
-    opacity: 0.0;
-}
-
-#overlay-video #btn-hover-vid-wrap:hover video {
-    opacity: 1.0;
-}
-
-#overlay-video #btn-hover-vid-wrap:hover #btn-hover-vid-text {
-    opacity: 1.0;
-}
-
-#overlay-video-fix {
-    z-index: 5;
-    position: absolute;
-    top: calc((100vh - 600px)/2);
-    left: calc((100vw - 1000px)/2);
-    width: 1000px;
-    height: 600px;
-    /* background: rgba(245, 222, 179, 0.418); */
-}
-
-@keyframes btn-hover-vid-anim {
-    from {
-        background: rgba(255, 255, 255, 0);
-    }
-
-    to {
-        background: rgba(255, 255, 255, 0.3);
-    }
-}
-
-#overlay-video #btn-hover-vid-wrap #btn-hover-vid {
-    z-index: 4;
-    position: absolute;
-    top: 20px;
-    left: calc(100vw - 20px - 50px);
-    height: 50px;
-    width: 50px;
+/* =========================================================== */
+.join-button {
+    background: var(--color-bg);
+    color: var(--color-tx);
+    border: 2px solid var(--color-tx);
     border-radius: 1000px;
-    /* background: white; */
-    border: solid 2px white;
-    cursor: crosshair;
-    animation: btn-hover-vid-anim 1s ease-in-out infinite alternate;
-    animation-delay: 10s;
+    font-size: 1.25rem;
+    font-weight: 500;
+    height: 4rem;
+    margin-bottom: 1.5rem;
 }
 
-#overlay-video #btn-hover-vid-wrap #btn-hover-vid:hover {
-    background: white !important;
+.join-button:hover {
+    background: var(--color-tx);
+    color: var(--color-bg);
 }
 
-/*  */
-
-#overlay-jointheteam {
-    z-index: 3;
-    position: absolute;
-    top: 0;
-    left: 0;
+.tags {
+    margin: 0.5rem 0 0.5rem 0;
 }
 
-#overlay-jointheteam #btn-hover-join-text {
-    z-index: 4;
-    position: absolute;
-    top: 104px;
-    left: calc(100vw - 20px - 50px - 200px - 15px);
-    width: 200px;
-    text-align: right;
-    font-size: 16px;
-    opacity: 0.0;
-}
-
-#overlay-jointheteam #btn-hover-join-wrap:hover video {
-    opacity: 1.0;
-}
-
-#overlay-jointheteam #btn-hover-join-wrap:hover #btn-hover-join-text {
-    opacity: 1.0;
-}
-
-#overlay-jointheteam #btn-hover-join-wrap #btn-hover-join {
-    z-index: 4;
-    position: absolute;
-    top: calc(20px + 50px + 20px);
-    left: calc(100vw - 20px - 50px);
-    height: 50px;
-    width: 50px;
+.tags span {
+    border: solid 2px rgba(128, 128, 128, 0.5);
     border-radius: 1000px;
-    /* background: white; */
-    border: solid 2px white;
-    cursor: pointer;
-}
-
-#overlay-jointheteam #btn-hover-join-wrap #btn-hover-join:hover {
-    background: white;
-}
-
-/*  */
-
-#overlay-logo {
-    z-index: 3;
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    font-family: 'IBM Plex Mono';
+    font-weight: 500;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    margin: 0 0.5rem 0 0;
 }
