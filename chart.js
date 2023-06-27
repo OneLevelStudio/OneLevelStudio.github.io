@@ -3,7 +3,7 @@ var chart_1 = document.getElementById("chart-1");
 chart_1.appendChild(container);
 
 var width = 1000;
-var height = 600;
+var height = 650;
 
 var chart = LightweightCharts.createChart(container, {
     width: width,
@@ -41,6 +41,10 @@ var areaSeries = chart.addAreaSeries({
 });
 
 areaSeries.setData([
+    {
+        "time": "2022-12-27",
+        "value": 0
+    },
     {
         "time": "2022-12-28",
         "value": 0
