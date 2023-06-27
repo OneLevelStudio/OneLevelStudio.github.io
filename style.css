@@ -67,3 +67,33 @@ h2::before {
     padding: 0.2rem 0.6rem;
     margin: 0 0.5rem 0 0;
 }
+
+.tags span.deferred {
+    background: rgb(255, 230, 88);
+    color: black;
+}
+
+.tags span.completed {
+    background: rgb(209, 139, 255);
+    color: black;
+}
+
+.tags span.operating {
+    background: rgb(93, 255, 147);
+    color: black;
+}
+
+.tags span.researching {
+    background: rgb(140, 213, 255);
+    color: black;
+}
+
+.tags span.developing {
+    background: rgb(140, 213, 255);
+    color: black;
+}
+
+.tags span.stopped {
+    background: rgb(255, 93, 93);
+    color: black;
+}
