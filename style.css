@@ -38,7 +38,7 @@ h2::before {
 
 /* =========================================================== */
 .join-button {
-    background: var(--color-bg);
+    /* background: var(--color-bg); */
     color: var(--color-tx);
     border: 2px solid var(--color-tx);
     border-radius: 1000px;

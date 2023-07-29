@@ -38,11 +38,96 @@
 
 <body style="padding: 6vw 6vw 0 6vw;">
 
+
+    <style>
+        @keyframes zoomInOut {
+            0% {
+                transform: scale(1);
+                opacity: 0.0;
+            }
+
+            5% {
+                opacity: 1.0;
+            }
+
+            100% {
+                transform: scale(1.5);
+            }
+        }
+
+        .zoomInOut {
+            animation: zoomInOut linear 10s forwards;
+        }
+    </style>
+    <div class="center"
+        style="position: fixed; z-index: -1; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden;">
+        <div id="theHeadingSuperBigImageOverlay"
+            style="background: var(--color-bg); width: 100%; height: 100%; opacity: 0.0;">
+        </div>
+    </div>
+    <div class="center"
+        style="position: fixed; z-index: -2; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden;">
+        <img src="/assets/Cyberpunk/1.jpg" id="theHeadingSuperBigImage" class="zoomInOut" style="width: 100%;">
+    </div>
+    <script>
+        const scrollImage = document.getElementById('theHeadingSuperBigImageOverlay');
+        // Function to handle scroll event
+        function handleScroll() {
+            const maxScroll = window.innerHeight / 3.0;
+            const currentScroll = window.scrollY;
+            const opacity = 0.0 + (currentScroll / maxScroll);
+            scrollImage.style.opacity = opacity;
+        }
+        window.addEventListener('scroll', handleScroll);
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageList = [
+                "/assets/Cyberpunk/1.jpg",
+                "/assets/Cyberpunk/2.jpg",
+                "/assets/Cyberpunk/3.jpg",
+                "/assets/Cyberpunk/4.jpg",
+                "/assets/Cyberpunk/5.jpg",
+                "/assets/Cyberpunk/6.jpg",
+                "/assets/Cyberpunk/7.jpg",
+                "/assets/Cyberpunk/8.jpg",
+                "/assets/Cyberpunk/9.jpg",
+                "/assets/Cyberpunk/10.jpg",
+                "/assets/Cyberpunk/11.jpg",
+                "/assets/Cyberpunk/12.jpg",
+                "/assets/Cyberpunk/13.jpg",
+                "/assets/Cyberpunk/14.jpg",
+                "/assets/Cyberpunk/15.jpg",
+                "/assets/Cyberpunk/16.jpg",
+                "/assets/Cyberpunk/17.jpg",
+                "/assets/Cyberpunk/18.jpg",
+                "/assets/Cyberpunk/19.jpg",
+                "/assets/Cyberpunk/20.jpg",
+            ];
+            // Function to change the image source randomly
+            function changeImageSourceRandomly() {
+                const imageElement = document.getElementById("theHeadingSuperBigImage");
+                // Reset animation
+                imageElement.classList.remove('zoomInOut');
+                void imageElement.offsetWidth;
+                imageElement.classList.add('zoomInOut');
+                // Change image src
+                const randomIndex = Math.floor(Math.random() * imageList.length);
+                const randomImageURL = imageList[randomIndex];
+                imageElement.src = randomImageURL;
+            }
+            changeImageSourceRandomly();
+            setInterval(changeImageSourceRandomly, 5000); //1000 -> 1000ms = 1s
+        });
+    </script>
+
+
+
     <div>
         <img src="./assets/logo.png" alt="One Level Studio" style="height: 48px;">
-        <div style="float: right;">
+        <!-- <div style="float: right;">
             <div id="darkmode"></div>
-        </div>
+        </div> -->
     </div>
 
     <h1
@@ -55,7 +140,6 @@
         We highly recommend that you should visit this website on desktop devices for the best experience.
         Videos and animations are disabled in some browsers on mobile devices.
     </div>
-
     <div class="mobile-only"
         style="background: var(--color-bg); position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 10000; overflow: hidden; text-align: center; padding: 1rem;">
         <div class="center" style="width: 100vw; height: 90vh;">
@@ -547,6 +631,7 @@
             All Rights Reserved.
         </p>
     </div>
+
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/gh/OneLevelStudio/OneLevelJS/onelevel.js"></script>
     <script src="./lib/lightweight-charts.js"></script>
