@@ -33,180 +33,190 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/OneLevelStudio/OneLevelJS/onelevel.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style-mobile.css">
     <link rel="stylesheet" href="./chart.css">
 </head>
 
-<body style="padding: 6vw 6vw 0 6vw;">
+<body>
 
 
-    <!-- ====================================================================== Header Background ========================================================================== -->
-    <div class="desktop-only">
-        <div style="position: fixed; z-index: -1; top: 0; right: 0; opacity: 0.1;">
-            <img src="/assets/Cyberpunk/1.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/2.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/3.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/4.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/5.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/6.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/7.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/8.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/9.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/10.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/11.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/12.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/13.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/14.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/15.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/16.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/17.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/18.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/19.jpg" style="width: 1px;">
-            <img src="/assets/Cyberpunk/20.jpg" style="width: 1px;">
-        </div>
-        <style>
-            @keyframes zoomInOut {
-                0% {
-                    transform: scale(1);
-                    opacity: 0.0;
-                }
 
-                5% {
-                    opacity: 1.0;
-                }
 
-                100% {
-                    transform: scale(1.5);
-                }
-            }
 
-            .zoomInOut {
-                animation: zoomInOut linear 10s forwards;
-            }
-        </style>
-        <div class="center"
-            style="position: fixed; z-index: -1; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden;">
-            <div id="theHeadingSuperBigImageOverlay"
-                style="background: var(--color-bg); width: 100%; height: 100%; opacity: 0.0;">
+
+    <!-- ========================= DESKTOP ========================= -->
+    <div style="padding: 6vw;" class="desktop-only">
+
+
+
+        <!-- ====================================================================== Header Background ========================================================================== -->
+        <div class="desktop-only">
+            <div style="position: fixed; z-index: -1; top: 0; right: 0; opacity: 0.1;">
+                <img src="/assets/Cyberpunk/1.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/2.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/3.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/4.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/5.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/6.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/7.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/8.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/9.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/10.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/11.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/12.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/13.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/14.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/15.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/16.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/17.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/18.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/19.jpg" style="width: 1px;">
+                <img src="/assets/Cyberpunk/20.jpg" style="width: 1px;">
             </div>
-        </div>
-        <div class="center"
-            style="position: fixed; z-index: -2; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden;">
-            <img src="/assets/Cyberpunk/1.jpg" id="theHeadingSuperBigImage" class="zoomInOut" style="width: 100%;">
-        </div>
-        <script>
-            const scrollImage = document.getElementById('theHeadingSuperBigImageOverlay');
-            // Function to handle scroll event
-            function handleScroll() {
-                const maxScroll = window.innerHeight / 3.0;
-                const currentScroll = window.scrollY;
-                const opacity = 0.0 + (currentScroll / maxScroll);
-                scrollImage.style.opacity = opacity;
-            }
-            window.addEventListener('scroll', handleScroll);
-        </script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageList = [
-                    "/assets/Cyberpunk/1.jpg",
-                    "/assets/Cyberpunk/2.jpg",
-                    "/assets/Cyberpunk/3.jpg",
-                    "/assets/Cyberpunk/4.jpg",
-                    "/assets/Cyberpunk/5.jpg",
-                    "/assets/Cyberpunk/6.jpg",
-                    "/assets/Cyberpunk/7.jpg",
-                    "/assets/Cyberpunk/8.jpg",
-                    "/assets/Cyberpunk/9.jpg",
-                    "/assets/Cyberpunk/10.jpg",
-                    "/assets/Cyberpunk/11.jpg",
-                    "/assets/Cyberpunk/12.jpg",
-                    "/assets/Cyberpunk/13.jpg",
-                    "/assets/Cyberpunk/14.jpg",
-                    "/assets/Cyberpunk/15.jpg",
-                    "/assets/Cyberpunk/16.jpg",
-                    "/assets/Cyberpunk/17.jpg",
-                    "/assets/Cyberpunk/18.jpg",
-                    "/assets/Cyberpunk/19.jpg",
-                    "/assets/Cyberpunk/20.jpg",
-                ];
-                // Function to change the image source randomly
-                function changeImageSourceRandomly() {
-                    const imageElement = document.getElementById("theHeadingSuperBigImage");
-                    // Reset animation
-                    imageElement.classList.remove('zoomInOut');
-                    void imageElement.offsetWidth;
-                    imageElement.classList.add('zoomInOut');
-                    // Change image src
-                    const randomIndex = Math.floor(Math.random() * imageList.length);
-                    const randomImageURL = imageList[randomIndex];
-                    imageElement.src = randomImageURL;
+            <style>
+                @keyframes zoomInOut {
+                    0% {
+                        transform: scale(1);
+                        opacity: 0.0;
+                    }
+
+                    5% {
+                        opacity: 1.0;
+                    }
+
+                    100% {
+                        transform: scale(1.5);
+                    }
                 }
-                changeImageSourceRandomly();
-                setInterval(changeImageSourceRandomly, 5000); //1000 -> 1000ms = 1s
-            });
-        </script>
-    </div>
 
-    <!-- ====================================================================== /Header Background ========================================================================== -->
+                .zoomInOut {
+                    animation: zoomInOut linear 10s forwards;
+                }
+            </style>
+            <div class="center"
+                style="position: fixed; z-index: -1; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden;">
+                <div id="theHeadingSuperBigImageOverlay"
+                    style="background: var(--color-bg); width: 100%; height: 100%; opacity: 0.0;">
+                </div>
+            </div>
+            <div class="center"
+                style="position: fixed; z-index: -2; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden;">
+                <img src="/assets/Cyberpunk/1.jpg" id="theHeadingSuperBigImage" class="zoomInOut" style="width: 100%;">
+            </div>
+            <script>
+                const scrollImage = document.getElementById('theHeadingSuperBigImageOverlay');
+                // Function to handle scroll event
+                function handleScroll() {
+                    const maxScroll = window.innerHeight / 3.0;
+                    const currentScroll = window.scrollY;
+                    const opacity = 0.0 + (currentScroll / maxScroll);
+                    scrollImage.style.opacity = opacity;
+                }
+                window.addEventListener('scroll', handleScroll);
+            </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const imageList = [
+                        "/assets/Cyberpunk/1.jpg",
+                        "/assets/Cyberpunk/2.jpg",
+                        "/assets/Cyberpunk/3.jpg",
+                        "/assets/Cyberpunk/4.jpg",
+                        "/assets/Cyberpunk/5.jpg",
+                        "/assets/Cyberpunk/6.jpg",
+                        "/assets/Cyberpunk/7.jpg",
+                        "/assets/Cyberpunk/8.jpg",
+                        "/assets/Cyberpunk/9.jpg",
+                        "/assets/Cyberpunk/10.jpg",
+                        "/assets/Cyberpunk/11.jpg",
+                        "/assets/Cyberpunk/12.jpg",
+                        "/assets/Cyberpunk/13.jpg",
+                        "/assets/Cyberpunk/14.jpg",
+                        "/assets/Cyberpunk/15.jpg",
+                        "/assets/Cyberpunk/16.jpg",
+                        "/assets/Cyberpunk/17.jpg",
+                        "/assets/Cyberpunk/18.jpg",
+                        "/assets/Cyberpunk/19.jpg",
+                        "/assets/Cyberpunk/20.jpg",
+                    ];
+                    // Function to change the image source randomly
+                    function changeImageSourceRandomly() {
+                        const imageElement = document.getElementById("theHeadingSuperBigImage");
+                        // Reset animation
+                        imageElement.classList.remove('zoomInOut');
+                        void imageElement.offsetWidth;
+                        imageElement.classList.add('zoomInOut');
+                        // Change image src
+                        const randomIndex = Math.floor(Math.random() * imageList.length);
+                        const randomImageURL = imageList[randomIndex];
+                        imageElement.src = randomImageURL;
+                    }
+                    changeImageSourceRandomly();
+                    setInterval(changeImageSourceRandomly, 5000); //1000 -> 1000ms = 1s
+                });
+            </script>
+        </div>
+
+        <!-- ====================================================================== /Header Background ========================================================================== -->
 
 
 
-    <div>
-        <img src="./assets/logo.png" alt="One Level Studio" style="height: 48px;">
-        <!-- <div style="float: right;">
+        <div>
+            <img src="./assets/logo.png" alt="One Level Studio" style="height: 48px;">
+            <!-- <div style="float: right;">
             <div id="darkmode"></div>
         </div> -->
-    </div>
-
-    <h1
-        style="font-size: 12vw; font-weight: 900; text-align-last:justify; font-family: 'Sofia Sans Condensed'; margin: 5vh 0;">
-        ONE LEVEL STUDIO
-    </h1>
-
-    <div class="row">
-        <div class="col-4" style="text-align: justify; font-size: 0.9rem;">
-            A small team of enthusiasts who creating, publishing and operating products, content and services
-            in the Technology and Entertainment industry.
-            Initial idea was started in July 2021, studio name was chosen in May 2022,
-            first marketing campaign was conducted in October 2022,
-            and the very first promising result appeared in February 2023.
-            We keep utilizing cutting-edge technology in our workflow,
-            prioritize the experience of our engaged community,
-            and going toward the pure freedom of creativity.
         </div>
-        <div class="col-1"></div>
-        <div class="col-4" style="text-align: justify; font-size: 0.94rem; line-height: 1.6;">
-            테크놀로지와 엔터테인먼트 산업에서 제품, 콘텐츠, 서비스를 창조, 출판, 운영하는 작은 열정적인 팀입니다. 이 아이디어는 2021년 7월에 시작되었으며, 스튜디오 이름은 2022년 5월에
-            선택되었으며, 첫 번째 마케팅 캠페인은 2022년 10월에 진행되었으며, 매우 유망한 첫 번째 결과가 2023년 2월에 나타났습니다. 저희는 최신 기술을 활용하여 작업을 진행하고,
-            참여하는
-            커뮤니티의 경험을 우선시하며, 순수한 창의성의 자유를 향해 나아가고 있습니다.
-        </div>
-        <div class="col-1"></div>
-        <div class="col-4">
-            <a target="_blank"
-                href="https://onelevelstudio.notion.site/One-Level-Studio-5c665e8cc9c14997b5f66559e300c18d">
-                <div class="join-button center">
-                    JOIN THE HUMAN TEAM
+
+        <h1
+            style="font-size: 12vw; font-weight: 900; text-align-last:justify; font-family: 'Sofia Sans Condensed'; margin: 5vh 0;">
+            ONE LEVEL STUDIO
+        </h1>
+
+        <div class="row">
+            <div class="col-4" style="text-align: justify; font-size: 0.9rem;">
+                A small team of enthusiasts who creating, publishing and operating products, content and services
+                in the Technology and Entertainment industry.
+                Initial idea was started in July 2021, studio name was chosen in May 2022,
+                first marketing campaign was conducted in October 2022,
+                and the very first promising result appeared in February 2023.
+                We keep utilizing cutting-edge technology in our workflow,
+                prioritize the experience of our engaged community,
+                and going toward the pure freedom of creativity.
+            </div>
+            <div class="col-1"></div>
+            <div class="col-4" style="text-align: justify; font-size: 0.94rem; line-height: 1.6;">
+                테크놀로지와 엔터테인먼트 산업에서 제품, 콘텐츠, 서비스를 창조, 출판, 운영하는 작은 열정적인 팀입니다. 이 아이디어는 2021년 7월에 시작되었으며, 스튜디오 이름은 2022년 5월에
+                선택되었으며, 첫 번째 마케팅 캠페인은 2022년 10월에 진행되었으며, 매우 유망한 첫 번째 결과가 2023년 2월에 나타났습니다. 저희는 최신 기술을 활용하여 작업을 진행하고,
+                참여하는
+                커뮤니티의 경험을 우선시하며, 순수한 창의성의 자유를 향해 나아가고 있습니다.
+            </div>
+            <div class="col-1"></div>
+            <div class="col-4">
+                <a target="_blank"
+                    href="https://onelevelstudio.notion.site/One-Level-Studio-5c665e8cc9c14997b5f66559e300c18d">
+                    <div class="join-button center">
+                        JOIN THE HUMAN TEAM
+                    </div>
+                </a>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="#projects">
+                            <div class="join-button center">
+                                PROJECTS
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-12">
+                        <a href="#lab">
+                            <div class="join-button center">
+                                LAB
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </a>
-            <div class="row">
-                <div class="col-12">
-                    <a href="#projects">
-                        <div class="join-button center">
-                            PROJECTS
-                        </div>
-                    </a>
-                </div>
-                <div class="col-1"></div>
-                <div class="col-12">
-                    <a href="#lab">
-                        <div class="join-button center">
-                            LAB
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
-    </div>
 
 
 
@@ -220,201 +230,277 @@
 
 
 
-    <h2 id="projects" style="margin-top: 30vh;">
-        PUBLIC PROJECTS
-    </h2>
-    <p style="color: gray;">
-        Projects that deployed officially under our name - One Level Studio. <br>
-        <i>All the images/videos are <b>actual</b>, copyright belongs to One Level Studio.</i>
-    </p>
-
-    <div class="row" style="margin-top: 10vh;">
-        <div class="col-6">
-            <!-- N022 -->
-            <img src="./assets/placeholder.jpg" alt="One Level Studio" width="100%">
-            <div class="tags">
-                <span>Global</span>
-                <span>Physical Merchandise</span>
-            </div>
-            <h3>
-                1LV.ME
-            </h3>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-6">
-            <!-- EMPTY -->
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h2 id="projects" style="margin-top: 30vh;">
-        NON-PUBLIC PROJECTS
-    </h2>
-    <p style="color: gray;">
-        Projects that not deployed under our name - One Level Studio - yet.<br>
-        These projects are independent, developed and distributed under different social media identities.<br>
-        You can view this section as a reference about what we are doing if you want to join the team!<br>
-        <i>All the images/videos are <b>actual</b>, copyright belongs to One Level Studio.</i>
-    </p>
-
-    <div class="row" style="margin-top: 10vh;">
-        <div class="col-6">
-            <!-- N022 -->
-            <img src="./assets/placeholder.jpg" alt="One Level Studio" width="100%">
-            <div class="tags">
-                <span>Entertainment \ Content</span>
-            </div>
-            <h3>
-                Project N2×11
-            </h3>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-6">
-            <!-- S00AH -->
-            <video style="object-fit: cover; width: 100%;" preload="auto" poster="/assets/SooAh.jpg" loop muted
-                autoplay="muted">
-                <source src="/assets/SooAh.mp4" type="video/mp4" />
-                Your browser does not support video.
-            </video>
-            <div class="tags">
-                <span>Entertainment \ Content</span>
-                <span>Virtual</span>
-            </div>
-            <h3>
-                Project <span style="font-size: 1.5rem; font-weight: 600;" class="acp">수아</span>
-            </h3>
-        </div>
-    </div>
-    <div class="row" style="margin-top: 10vh;">
-        <div class="col-6">
-            <!-- DPOD -->
-            <img src="./assets/DPOD.jpg" alt="One Level Studio" width="100%">
-            <div class="tags">
-                <span>Merchandise</span>
-                <span>Dropshipping</span>
-                <span>Print-On-Demand</span>
-            </div>
-            <h3>
-                Project DPOD
-            </h3>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-6">
-            <!-- One Level JS -->
-            <img src="./assets/placeholder.jpg" alt="One Level Studio" width="100%">
-            <div class="tags">
-                <span>Technology \ Web</span>
-                <span>Javascript</span>
-                <span>User Interface</span>
-            </div>
-            <h3>
-                One Level JS
-            </h3>
-        </div>
-    </div>
-    <div class="row" style="margin-top: 10vh;">
-        <div class="col-6">
-            <!-- Project R -->
-            <video style="object-fit: cover; width: 100%;" preload="auto" poster="/assets/ProjectR.jpg" loop muted
-                autoplay="muted">
-                <source src="/assets/ProjectR.mp4" type="video/mp4" />
-                Your browser does not support video.
-            </video>
-            <div class="tags">
-                <span>Entertainment \ Game</span>
-                <span>Exploration</span>
-                <span>Relaxing</span>
-            </div>
-            <h3>
-                Project R
-            </h3>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-6">
-            <!-- Death Delusion -->
-            <img src="./assets/DeathDelusion.jpg" alt="One Level Studio" width="100%">
-            <div class="tags">
-                <span>Entertainment \ Game</span>
-                <span>First-person Shooter</span>
-                <span>Horror</span>
-            </div>
-            <h3>
-                Project D - Death Delusion
-            </h3>
-        </div>
-    </div>
-    <div class="row" style="margin-top: 10vh;">
-        <div class="col-6">
-            <!-- Notionism -->
-            <img src="./assets/Notionism.jpg" alt="One Level Studio" width="100%">
-            <div class="tags">
-                <span>Technology \ Web</span>
-                <span>Notion</span>
-                <span>Utilities</span>
-            </div>
-            <h3>
-                Project MINIMA - Notionism
-            </h3>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-6">
-            <!-- Empty -->
-        </div>
-    </div>
-
-
-
-
-
-
-    <h2 id="lab" style="margin-top: 30vh;">
-        LAB
-    </h2>
-    <p style="color: gray;">
-        Projects/experiments that have the potential to improve our workflow and performance.<br>
-        <i>All the images/videos are <b>actual</b>, copyright belongs to One Level Studio.</i>
-    </p>
-    <div style="margin-top: 10vh;">
-        <!-- AMADEUS -->
-        <img src="./assets/AMADEUS.jpg" alt="One Level Studio" width="100%">
-        <div class="tags">
-            <span>Science \ Neuroscience</span>
-            <span>Electroencephalograph</span>
-            <span>Technology \ AI</span>
-            <span>LLM</span>
-        </div>
-        <h3>
-            Project AMADEUS
-        </h3>
-        <p style="color: gray; margin-top: 0.3rem;">
-            Can we replicate ourselves - human - in an interactive digital format?
+        <h2 id="projects" style="margin-top: 30vh;">
+            PUBLIC PROJECTS
+        </h2>
+        <p style="color: gray;">
+            Projects that deployed officially under our name - One Level Studio. <br>
+            <i>All the images/videos are <b>actual</b>, copyright belongs to One Level Studio.</i>
         </p>
-    </div>
-    <div style="margin-top: 10vh;">
-        <!-- AVP ENGINE -->
-        <img src="./assets/AVPE.jpg" alt="One Level Studio" width="100%">
-        <div class="tags">
-            <span>Technology \ Automation</span>
-            <span>Entertainment \ Content</span>
-            <span>Mass Production</span>
+
+        <div class="row" style="margin-top: 10vh;">
+            <div class="col-6">
+                <!-- N022 -->
+                <img src="./assets/placeholder.jpg" alt="One Level Studio" width="100%">
+                <div class="tags">
+                    <span>Global</span>
+                    <span>Physical Merchandise</span>
+                </div>
+                <h3>
+                    1LV.ME
+                </h3>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-6">
+                <!-- EMPTY -->
+            </div>
         </div>
-        <h3>
-            Project AVPE / ASVPE
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h2 id="projects" style="margin-top: 30vh;">
+            NON-PUBLIC PROJECTS
+        </h2>
+        <p style="color: gray;">
+            Projects that not deployed under our name - One Level Studio - yet.<br>
+            These projects are independent, developed and distributed under different social media identities.<br>
+            You can view this section as a reference about what we are doing if you want to join the team!<br>
+            <i>All the images/videos are <b>actual</b>, copyright belongs to One Level Studio.</i>
+        </p>
+
+        <div class="row" style="margin-top: 10vh;">
+            <div class="col-6">
+                <!-- N022 -->
+                <img src="./assets/placeholder.jpg" alt="One Level Studio" width="100%">
+                <div class="tags">
+                    <span>Entertainment \ Content</span>
+                </div>
+                <h3>
+                    Project N2×11
+                </h3>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-6">
+                <!-- S00AH -->
+                <video style="object-fit: cover; width: 100%;" preload="auto" poster="/assets/SooAh.jpg" loop muted
+                    autoplay="muted">
+                    <source src="/assets/SooAh.mp4" type="video/mp4" />
+                    Your browser does not support video.
+                </video>
+                <div class="tags">
+                    <span>Entertainment \ Content</span>
+                    <span>Virtual</span>
+                </div>
+                <h3>
+                    Project <span style="font-size: 1.5rem; font-weight: 600;" class="acp">수아</span>
+                </h3>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10vh;">
+            <div class="col-6">
+                <!-- DPOD -->
+                <img src="./assets/DPOD.jpg" alt="One Level Studio" width="100%">
+                <div class="tags">
+                    <span>Merchandise</span>
+                    <span>Dropshipping</span>
+                    <span>Print-On-Demand</span>
+                </div>
+                <h3>
+                    Project DPOD
+                </h3>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-6">
+                <!-- One Level JS -->
+                <img src="./assets/placeholder.jpg" alt="One Level Studio" width="100%">
+                <div class="tags">
+                    <span>Technology \ Web</span>
+                    <span>Javascript</span>
+                    <span>User Interface</span>
+                </div>
+                <h3>
+                    One Level JS
+                </h3>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10vh;">
+            <div class="col-6">
+                <!-- Project R -->
+                <video style="object-fit: cover; width: 100%;" preload="auto" poster="/assets/ProjectR.jpg" loop muted
+                    autoplay="muted">
+                    <source src="/assets/ProjectR.mp4" type="video/mp4" />
+                    Your browser does not support video.
+                </video>
+                <div class="tags">
+                    <span>Entertainment \ Game</span>
+                    <span>Exploration</span>
+                    <span>Relaxing</span>
+                </div>
+                <h3>
+                    Project R
+                </h3>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-6">
+                <!-- Death Delusion -->
+                <img src="./assets/DeathDelusion.jpg" alt="One Level Studio" width="100%">
+                <div class="tags">
+                    <span>Entertainment \ Game</span>
+                    <span>First-person Shooter</span>
+                    <span>Horror</span>
+                </div>
+                <h3>
+                    Project D - Death Delusion
+                </h3>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10vh;">
+            <div class="col-6">
+                <!-- Notionism -->
+                <img src="./assets/Notionism.jpg" alt="One Level Studio" width="100%">
+                <div class="tags">
+                    <span>Technology \ Web</span>
+                    <span>Notion</span>
+                    <span>Utilities</span>
+                </div>
+                <h3>
+                    Project MINIMA - Notionism
+                </h3>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-6">
+                <!-- Empty -->
+            </div>
+        </div>
+
+
+
+
+
+
+        <h2 id="lab" style="margin-top: 30vh;">
+            LAB
+        </h2>
+        <p style="color: gray;">
+            Projects/experiments that have the potential to improve our workflow and performance.<br>
+            <i>All the images/videos are <b>actual</b>, copyright belongs to One Level Studio.</i>
+        </p>
+        <div style="margin-top: 10vh;">
+            <!-- AMADEUS -->
+            <img src="./assets/AMADEUS.jpg" alt="One Level Studio" width="100%">
+            <div class="tags">
+                <span>Science \ Neuroscience</span>
+                <span>Electroencephalograph</span>
+                <span>Technology \ AI</span>
+                <span>LLM</span>
+            </div>
+            <h3>
+                Project AMADEUS
+            </h3>
             <p style="color: gray; margin-top: 0.3rem;">
-                Automated Video Production Engine / Automated Short-Video Production Engine
+                Can we replicate ourselves - human - in an interactive digital format?
             </p>
-    </div>
+        </div>
+        <div style="margin-top: 10vh;">
+            <!-- AVP ENGINE -->
+            <img src="./assets/AVPE.jpg" alt="One Level Studio" width="100%">
+            <div class="tags">
+                <span>Technology \ Automation</span>
+                <span>Entertainment \ Content</span>
+                <span>Mass Production</span>
+            </div>
+            <h3>
+                Project AVPE / ASVPE
+                <p style="color: gray; margin-top: 0.3rem;">
+                    Automated Video Production Engine / Automated Short-Video Production Engine
+                </p>
+        </div>
+
+
+
+
+
+        <h2 style="margin-top: 30vh;">
+            TECHNOLOGIES
+        </h2>
+        <div
+            style="padding: 4vw 3vw 6vw 3vw; background: rgba(255, 255, 255, 0.04); border-radius: 12px; margin-top: 10vh;">
+            <p style="color: gray; text-align: center; margin-top: 2px;">
+                Powered by the latest technologies from
+            </p>
+            <div class="row" style="margin-top: 4vw;">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col center-x">
+                    <img src="./assets/PoweredBy/Unity.png" alt="One Level Studio" style="height: 52px;">
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col center-x">
+                    <p style="font-size: 32px; font-weight: 600; margin-top: 2px;" class="acp">
+                        &nbsp;&nbsp;BepInEx&nbsp;&nbsp;
+                    </p>
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col center-x">
+                    <img src="./assets/PoweredBy/Anthropic.png" alt="One Level Studio" style="height: 52px;">
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col center-x">
+                    <img src="./assets/PoweredBy/OpenAI.png" alt="One Level Studio" style="height: 52px;">
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col center-x">
+                    <img src="./assets/PoweredBy/StabilityAI.png" alt="One Level Studio" style="height: 52px;">
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+            <div class="row" style="margin-top: 3vw;">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col center-x">
+                    <img src="./assets/PoweredBy/TensorFlow.png" alt="One Level Studio" style="height: 52px;">
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col center-x">
+                    <img src="./assets/PoweredBy/Kaggle.png" alt="One Level Studio" style="height: 52px;">
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col center-x">
+                    <p style="font-size: 32px; font-weight: 600; margin-top: 2px;" class="acp">
+                        HuggingFace
+                    </p>
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col center-x">
+                    <img src="./assets/PoweredBy/Gradio.png" alt="One Level Studio" style="height: 52px;">
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col center-x">
+                    <img src="./assets/PoweredBy/Adobe.png" alt="One Level Studio" style="height: 52px;">
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+        </div>
 
 
 
@@ -426,79 +512,163 @@
 
 
 
-
-
-
-    <h2 style="margin-top: 30vh;">
-        TECHNOLOGIES
-    </h2>
-    <div
-        style="padding: 4vw 3vw 6vw 3vw; background: rgba(255, 255, 255, 0.04); border-radius: 12px; margin-top: 10vh;">
-        <p style="color: gray; text-align: center; margin-top: 2px;">
-            Powered by the latest technologies from
+        <!-- <h2 id="status" style="margin-top: 25vh;">
+            DEVELOPMENT STATUS
+        </h2>
+        <p style="color: gray;">
+            Project N2×11, US + Japan + Korea marketplace, until Q2 2023. <br>
+            <i>Data on this website is not live, just showcase, updated per quarter.</i>
         </p>
-        <div class="row" style="margin-top: 4vw;">
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col center-x">
-                <img src="./assets/PoweredBy/Unity.png" alt="One Level Studio" style="height: 52px;">
+        <p style="color: gray;">
+            Until Q2 2023 <br>
+            <i>Data on this website is updated per quarter.</i>
+        </p>
+        <div class="row" style="margin-top: 10vh;">
+            <div class="col-4">
+                <h3>
+                    Total Investment Fund
+                </h3>
+                <div style="color: white;">
+                    <p style="font-size: 0.8rem;">
+                        Above.
+                    </p>
+                    <p style="font-size: 4rem;">
+                        8,000 USD
+                    </p>
+                </div>
             </div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col center-x">
-                <p style="font-size: 32px; font-weight: 600; margin-top: 2px;" class="acp">
-                    &nbsp;&nbsp;BepInEx&nbsp;&nbsp;
+            <div class="col-1"></div>
+            <div class="col-4">
+                <h3>
+                    Burnt
+                </h3>
+                <div style="color: rgba(255, 82, 82, 1);">
+                    <p style="font-size: 0.8rem;">
+                        Approx.
+                    </p>
+                    <p style="font-size: 4rem;">
+                        7,200 USD
+                    </p>
+                </div>
+                <p style="font-size: 0.9rem;">
+                    Bad news: <br>
+                    The second fund-burn phase got hard 🔥 <br>
+                    Good news: <br>
+                    The cash flow has been determined. If we don't count the burnt investment,
+                    currently, the monthly revenue is becoming higher than the expense.
                 </p>
             </div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col center-x">
-                <img src="./assets/PoweredBy/Anthropic.png" alt="One Level Studio" style="height: 52px;">
-            </div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col center-x">
-                <img src="./assets/PoweredBy/OpenAI.png" alt="One Level Studio" style="height: 52px;">
-            </div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col center-x">
-                <img src="./assets/PoweredBy/StabilityAI.png" alt="One Level Studio" style="height: 52px;">
-            </div>
-            <div class="col"></div>
-            <div class="col"></div>
-        </div>
-        <div class="row" style="margin-top: 3vw;">
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col center-x">
-                <img src="./assets/PoweredBy/TensorFlow.png" alt="One Level Studio" style="height: 52px;">
-            </div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col center-x">
-                <img src="./assets/PoweredBy/Kaggle.png" alt="One Level Studio" style="height: 52px;">
-            </div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col center-x">
-                <p style="font-size: 32px; font-weight: 600; margin-top: 2px;" class="acp">
-                    HuggingFace
+            <div class="col-1"></div>
+            <div class="col-4">
+                <h3>
+                    Remained
+                </h3>
+                <div style="color: rgb(138, 245, 174);">
+                    <p style="font-size: 0.8rem;">
+                        Approx.
+                    </p>
+                    <p style="font-size: 4rem;">
+                        800 USD
+                    </p>
+                </div>
+                <p style="font-size: 0.9rem;">
+                    Founder: 🥲 <br>
+                    Members: 🤣😆🤭😂
                 </p>
             </div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col center-x">
-                <img src="./assets/PoweredBy/Gradio.png" alt="One Level Studio" style="height: 52px;">
-            </div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col center-x">
-                <img src="./assets/PoweredBy/Adobe.png" alt="One Level Studio" style="height: 52px;">
-            </div>
-            <div class="col"></div>
-            <div class="col"></div>
         </div>
+
+        <div class="row" style="margin-top: 5vh;">
+            <div class="col-7">
+                <h3>
+                    GROWTH
+                </h3>
+                <div id="chart-1" style="position: relative; width: 100%;"></div>
+                <p style="font-style: italic; font-size: 0.9rem; margin-top: 2rem; color: gray;">
+                    * NMPFI - Next-Month Performance Forecast Index
+                    <br>
+                    NMPFI is our own calculated index to track the status of business health.
+                    <br>
+                    The higher, the better. As long as NMPFI don't reach 0, we're still alive.
+                </p>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+                <h3>
+                    MARKETING
+                </h3>
+                <h3 style="margin-top: 3rem;">
+                    Total Organic Engaged Users
+                </h3>
+                <p style="font-size: 0.8rem;">
+                    Above
+                </p>
+                <p style="font-size: 7rem; line-height: 1.0; letter-spacing: 0.2rem; font-family: 'Sofia Sans Condensed';">
+                    21,000
+                </p>
+                <h3 style="margin-top: 3rem;">
+                    Total Organic Engagements
+                </h3>
+                <p style="font-size: 0.8rem;">
+                    Above
+                </p>
+                <p style="font-size: 7rem; line-height: 1.0; letter-spacing: 0.2rem; font-family: 'Sofia Sans Condensed';">
+                    128,000
+                </p>
+                <h3 style="margin-top: 3rem;">
+                    Total Organic Views
+                </h3>
+                <p style="font-size: 0.8rem;">
+                    Above
+                </p>
+                <p style="font-size: 7rem; line-height: 1.0; letter-spacing: 0.2rem; font-family: 'Sofia Sans Condensed';">
+                    1,150,000
+                </p>
+                <p style="font-style: italic; font-size: 0.9rem; margin-top: 2rem; color: gray;">
+                    * Organic: Interactions that are NOT come from paid advertisements,
+                    but driven by platforms' algorithms and users themselves.
+                </p>
+            </div>
+        </div> -->
+
+
+
+
+
+
+        <div class="center"
+            style="margin-top: 25vh; padding: 3vw; background: rgba(255, 255, 255, 0.04); border-radius: 12px;">
+            <img src="./assets/logo.png" alt="One Level Studio" style="height: 10vh;">
+            <div style="margin-top: 5vh; text-align: center;">
+                <a href="#">HOME</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#projects">
+                    PROJECTS
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#lab">
+                    LAB
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="mailto:onelevelstudio@gmail.com">
+                    CONTACT
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a target="_blank"
+                    href="https://onelevelstudio.notion.site/One-Level-Studio-5c665e8cc9c14997b5f66559e300c18d">
+                    JOIN THE TEAM
+                </a>
+            </div>
+            <p style="margin-top: 5vh; font-size: 0.92rem; text-align: center; color: hsl(0, 0%, 70%);">
+                Still a very young and small team, but we will shine our own way.
+                <br>
+                One Level Studio &copy; 2022 -
+                <script>document.write(new Date().getFullYear())</script>.
+                All Rights Reserved.
+            </p>
+        </div>
+
+
     </div>
 
 
@@ -510,162 +680,75 @@
 
 
 
-
-    <!-- <h2 id="status" style="margin-top: 25vh;">
-        DEVELOPMENT STATUS
-    </h2>
-    <p style="color: gray;">
-        Project N2×11, US + Japan + Korea marketplace, until Q2 2023. <br>
-        <i>Data on this website is not live, just showcase, updated per quarter.</i>
-    </p>
-    <p style="color: gray;">
-        Until Q2 2023 <br>
-        <i>Data on this website is updated per quarter.</i>
-    </p>
-    <div class="row" style="margin-top: 10vh;">
-        <div class="col-4">
-            <h3>
-                Total Investment Fund
-            </h3>
-            <div style="color: white;">
-                <p style="font-size: 0.8rem;">
-                    Above.
-                </p>
-                <p style="font-size: 4rem;">
-                    8,000 USD
-                </p>
+    <!-- ========================= MOBILE ========================= -->
+    <div class="mobile-only">
+        <div id="nav" class="center-y"
+            style="height: 60px; padding: 0 1rem; border-bottom: hsla(0, 0%, 100%, 0.05) solid 1px;">
+            <div style="margin-top: 2px;">
+                <div style="float: left;">
+                    <a href="mailto:onelevelstudio@gmail.com" target="_blank">
+                        <div style="display: flex; flex-direction: row; align-items: center;">
+                            <img src="./assets/icon/email.png" style="margin-right: 0.6rem;">
+                            <p style="color: white; font-size: 0.8rem; margin-top: 1px;">
+                                Get in touch
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div style="float: right;">
+                    <a href="https://www.instagram.com/onelevel.studio/" target="_blank">
+                        <img src="./assets/icon/instagram.png">
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="col-1"></div>
-        <div class="col-4">
-            <h3>
-                Burnt
-            </h3>
-            <div style="color: rgba(255, 82, 82, 1);">
-                <p style="font-size: 0.8rem;">
-                    Approx.
-                </p>
-                <p style="font-size: 4rem;">
-                    7,200 USD
-                </p>
+
+        <div class="center-x" style="margin-top: 3rem;">
+            <img src="./assets/logo.png" style="max-width: 35%; border-radius: 0px;">
+            <h1 style="font-size: 0.9rem; font-weight: 500; margin-top: 0.75rem; color: gray;">
+                ONE LEVEL STUDIO
+            </h1>
+            <img src="./assets/the-text.png" style="max-width: 70%; margin-top: 3rem; border-radius: 0px;">
+        </div>
+
+
+        <div class="center-x">
+            <div style="width: 100%; max-width: 600px;">
+                <div style="margin: 0 1.5rem; margin-top: 3rem;">
+                    <a href="https://onelevelstudio.notion.site/One-Level-Studio-5c665e8cc9c14997b5f66559e300c18d"
+                        target="_blank">
+                        <div class="my-btn special-btn">
+                            JOIN THE HUMAN TEAM
+                        </div>
+                    </a>
+                    <a href="mailto:onelevelstudio@gmail.com" target="_blank">
+                        <div class="my-btn">
+                            GET IN TOUCH
+                        </div>
+                    </a>
+
+                    <div
+                        style="background: hsla(0, 0%, 100%, 0.1); margin-top: 3rem; padding: 1.2rem 1.6rem; border-radius: 16px; font-size: 0.9rem;">
+                        ⚠️ This is the lite version of our website on mobile device.
+                        Please visit us on desktop device for the full experience and information.
+                        Thank you!
+                    </div>
+
+                </div>
             </div>
-            <p style="font-size: 0.9rem;">
-                Bad news: <br>
-                The second fund-burn phase got hard 🔥 <br>
-                Good news: <br>
-                The cash flow has been determined. If we don't count the burnt investment,
-                currently, the monthly revenue is becoming higher than the expense.
-            </p>
         </div>
-        <div class="col-1"></div>
-        <div class="col-4">
-            <h3>
-                Remained
-            </h3>
-            <div style="color: rgb(138, 245, 174);">
-                <p style="font-size: 0.8rem;">
-                    Approx.
-                </p>
-                <p style="font-size: 4rem;">
-                    800 USD
-                </p>
-            </div>
-            <p style="font-size: 0.9rem;">
-                Founder: 🥲 <br>
-                Members: 🤣😆🤭😂
-            </p>
-        </div>
-    </div>
 
-    <div class="row" style="margin-top: 5vh;">
-        <div class="col-7">
-            <h3>
-                GROWTH
-            </h3>
-            <div id="chart-1" style="position: relative; width: 100%;"></div>
-            <p style="font-style: italic; font-size: 0.9rem; margin-top: 2rem; color: gray;">
-                * NMPFI - Next-Month Performance Forecast Index
-                <br>
-                NMPFI is our own calculated index to track the status of business health.
-                <br>
-                The higher, the better. As long as NMPFI don't reach 0, we're still alive.
-            </p>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-5">
-            <h3>
-                MARKETING
-            </h3>
-            <h3 style="margin-top: 3rem;">
-                Total Organic Engaged Users
-            </h3>
-            <p style="font-size: 0.8rem;">
-                Above
-            </p>
-            <p style="font-size: 7rem; line-height: 1.0; letter-spacing: 0.2rem; font-family: 'Sofia Sans Condensed';">
-                21,000
-            </p>
-            <h3 style="margin-top: 3rem;">
-                Total Organic Engagements
-            </h3>
-            <p style="font-size: 0.8rem;">
-                Above
-            </p>
-            <p style="font-size: 7rem; line-height: 1.0; letter-spacing: 0.2rem; font-family: 'Sofia Sans Condensed';">
-                128,000
-            </p>
-            <h3 style="margin-top: 3rem;">
-                Total Organic Views
-            </h3>
-            <p style="font-size: 0.8rem;">
-                Above
-            </p>
-            <p style="font-size: 7rem; line-height: 1.0; letter-spacing: 0.2rem; font-family: 'Sofia Sans Condensed';">
-                1,150,000
-            </p>
-            <p style="font-style: italic; font-size: 0.9rem; margin-top: 2rem; color: gray;">
-                * Organic: Interactions that are NOT come from paid advertisements,
-                but driven by platforms' algorithms and users themselves.
-            </p>
-        </div>
-    </div> -->
-
-
-
-
-
-
-    <div class="center"
-        style="margin: 25vh 0 6vw 0; padding: 3vw; background: rgba(255, 255, 255, 0.04); border-radius: 12px;">
-        <img src="./assets/logo.png" alt="One Level Studio" style="height: 10vh;">
-        <div style="margin-top: 5vh; text-align: center;">
-            <a href="#">HOME</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#projects">
-                PROJECTS
-            </a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#lab">
-                LAB
-            </a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="mailto:onelevelstudio@gmail.com">
-                CONTACT
-            </a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a target="_blank"
-                href="https://onelevelstudio.notion.site/One-Level-Studio-5c665e8cc9c14997b5f66559e300c18d">
-                JOIN THE TEAM
-            </a>
-        </div>
-        <p style="margin-top: 5vh; font-size: 0.92rem; text-align: center; color: hsl(0, 0%, 70%);">
-            Still a very young and small team, but we will shine our own way.
-            <br>
-            One Level Studio &copy; 2022 -
+        <div style="text-align: center; color: hsl(0, 0%, 30%); font-size: 0.8rem; margin: 2.5rem 1rem;">
+            One Level Studio &copy;
             <script>document.write(new Date().getFullYear())</script>.
             All Rights Reserved.
-        </p>
+        </div>
     </div>
+
+
+
+
+
 
 
 
