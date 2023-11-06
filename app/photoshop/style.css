@@ -1,0 +1,33 @@
+#toggleButton {
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.6rem;
+    font-weight: 500;
+    background: transparent;
+    border: solid white 1px;
+    color: white;
+    opacity: 0.5;
+    user-select: none;
+}
+
+#hide-1 {
+    position: fixed;
+    top: 0;
+    left: 450px;
+    height: 30px;
+    width: 300px;
+    background: #474747;
+    /* background: wheat; */
+}
+
+#hide-2 {
+    position: fixed;
+    top: 0;
+    right: 0px;
+    height: 30px;
+    width: 800px;
+    background: #474747;
+    /* background: wheat; */
+
+}
