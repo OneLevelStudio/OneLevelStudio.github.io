@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Markdown Editor</title>
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <!-- Editor -->
+  <link rel="stylesheet" href="css/toastui-editor.css">
+  <!-- Chart -->
+  <link rel="stylesheet" href="css/toastui-chart.css">
+  <!-- Code Highlight -->
+  <link rel="stylesheet" href="css/prism.min.css">
+  <link rel="stylesheet" href="css/toastui-editor-plugin-code-syntax-highlight.min.css">
+  <!-- Color syntax -->
+  <link rel="stylesheet" href="css/tui-color-picker.css">
+  <link rel="stylesheet" href="css/toastui-editor-plugin-color-syntax.min.css">
+  <!-- Merged Table -->
+  <link rel="stylesheet" href="css/toastui-editor-plugin-table-merged-cell.min.css">
+  <script>var errorLogs = []; window.onerror = function (o, r, e, n) { errorLogs.push({ message: o, source: r, lineno: e, colno: n }) };</script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="editor"></div>
+
+  <!-- Added to check demo page in Internet Explorer -->
+  <script src="js/babel.min.js"></script>
+  <script src="js/md-plugins.js"></script>
+  <!-- Editor -->
+  <script src="js/toastui-editor-all.js"></script>
+  <!-- Chart -->
+  <script src="js/toastui-chart.js"></script>
+  <!-- Color Picker -->
+  <script src="js/tui-color-picker.min.js"></script>
+  <!-- Editor's Plugin -->
+  <script src="js/toastui-editor-plugin-chart.min.js"></script>
+  <script src="js/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
+  <script src="js/toastui-editor-plugin-color-syntax.min.js"></script>
+  <script src="js/toastui-editor-plugin-table-merged-cell.min.js"></script>
+  <script src="js/toastui-editor-plugin-uml.min.js"></script>
+  <script type="text/babel" class="code-js">
+    const { Editor } = toastui;
+    const { chart, codeSyntaxHighlight, colorSyntax, tableMergedCell, uml } = Editor.plugin;
+
+    const chartOptions = {
+      minWidth: 100,
+      maxWidth: 600,
+      minHeight: 100,
+      maxHeight: 300
+    };
+
+    const editor = new Editor({
+      el: document.querySelector('#editor'),
+      previewStyle: 'vertical',
+      height: '100vh',
+      initialValue: allPluginsContent,
+      plugins: [[chart, chartOptions], [codeSyntaxHighlight, { highlighter: Prism }], colorSyntax, tableMergedCell, uml]
+    });
+
+    const viewer = Editor.factory({
+      el: document.querySelector('#viewer'),
+      viewer: true,
+      height: '500px',
+      initialValue: allPluginsContent,
+      plugins: [[chart, chartOptions], [codeSyntaxHighlight, { highlighter: Prism }], tableMergedCell, uml]
+    });
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>1. Editor</title>
+  <link rel="stylesheet" href="css/tuidoc-example-style.css">
+  <!-- Editor -->
+  <link rel="stylesheet" href="css/toastui-editor.css">
+  <script>var errorLogs = []; window.onerror = function (o, r, e, n) { errorLogs.push({ message: o, source: r, lineno: e, colno: n }) };</script>
+</head>
+
+<body>
+  <div class="code-html tui-doc-contents">
+    <div id="editor"></div>
+  </div>
+  <!-- Added to check demo page in Internet Explorer -->
+  <script src="js/babel.min.js"></script>
+  <script src="js/md-default.js"></script>
+  <!-- Editor -->
+  <script src="js/toastui-editor-all.js"></script>
+  <script type="text/babel" class="code-js">
+    const editor = new toastui.Editor({
+      el: document.querySelector('#editor'),
+      previewStyle: 'vertical',
+      height: '500px',
+      initialValue: content
+    });
+  </script>
+
+
+</body>
+
+</html>
