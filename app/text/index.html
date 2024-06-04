@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/OneLevelStudio/OneLevelJS/onelevel.min.css">
+    <style>
+        * {
+            transition: none;
+        }
+
+        body {
+            background: hsl(0, 0%, 90%);
+        }
+
+        #inputText,
+        .outputText {
+            width: 100%;
+            border-radius: 12px;
+            outline: none !important;
+            padding: 0.6rem 1rem;
+            resize: none;
+            border: solid 1px hsl(0, 0%, 85%);
+            background: hsl(0, 0%, 95%);
+        }
+
+        #inputText {
+            height: 150px;
+            margin-bottom: 10px;
+            overflow-y: scroll;
+        }
+
+        #outputTextWrap {
+            position: relative;
+            height: calc(100vh - 150px - 3 * 16px);
+            overflow-y: scroll;
+        }
+
+        .outputTextBlock {
+            position: relative;
+        }
+
+        .outputText {
+            margin-bottom: 10px;
+            height: 100px;
+        }
+
+        .copyBtn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            /* background: hsl(0, 0%, 85%, 50%); */
+            height: 100%;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            padding: 0 16px;
+            padding-bottom: 18px;
+        }
+
+        .copyBtnText {
+            background: white;
+            height: 48px;
+            width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all ease 0.3s;
+            opacity: 0.5;
+        }
+
+        .copyBtnText:hover {
+            opacity: 1.0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4" style="padding: 16px;">
+            <textarea id="inputText" placeholder="Your input text here..." oninput="convertText()">
+                Hello dsf sdf
+            </textarea>
+            <div id="outputTextWrap"></div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+    <script>
+        function copyText(u) {
+            var copytext = document.getElementById("output-" + u);
+            copytext.select();
+            copytext.setSelectionRange(0, 99999); // For mobile devices
+            navigator.clipboard.writeText(copytext.value);
+            // alert("Copied the text: " + copytext.value);
+        }
+
+        function convertText() {
+            var input = document.getElementById("inputText").value;
+            const inputMap = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+            const outputMaps = [
+                "𝘲𝘸𝘦𝘳𝘵𝘺𝘶𝘪𝘰𝘱𝘢𝘴𝘥𝘧𝘨𝘩𝘫𝘬𝘭𝘻𝘹𝘤𝘷𝘣𝘯𝘮𝘘𝘞𝘌𝘙𝘛𝘠𝘜𝘐𝘖𝘗𝘈𝘚𝘋𝘍𝘎𝘏𝘑𝘒𝘓𝘡𝘟𝘊𝘝𝘉𝘕𝘔𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢",
+                "𝚚𝚠𝚎𝚛𝚝𝚢𝚞𝚒𝚘𝚙𝚊𝚜𝚍𝚏𝚐𝚑𝚓𝚔𝚕𝚣𝚡𝚌𝚟𝚋𝚗𝚖𝚀𝚆𝙴𝚁𝚃𝚈𝚄𝙸𝙾𝙿𝙰𝚂𝙳𝙵𝙶𝙷𝙹𝙺𝙻𝚉𝚇𝙲𝚅𝙱𝙽𝙼𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿𝟶",
+                "𝔮𝔴𝔢𝔯𝔱𝔶𝔲𝔦𝔬𝔭𝔞𝔰𝔡𝔣𝔤𝔥𝔧𝔨𝔩𝔷𝔵𝔠𝔳𝔟𝔫𝔪𝔔𝔚𝔈ℜ𝔗𝔜𝔘ℑ𝔒𝔓𝔄𝔖𝔇𝔉𝔊ℌ𝔍𝔎𝔏ℨ𝔛ℭ𝔙𝔅𝔑𝔐1234567890",
+                "𝖖𝖜𝖊𝖗𝖙𝖞𝖚𝖎𝖔𝖕𝖆𝖘𝖉𝖋𝖌𝖍𝖏𝖐𝖑𝖟𝖝𝖈𝖛𝖇𝖓𝖒𝕼𝖂𝕰𝕽𝕿𝖄𝖀𝕴𝕺𝕻𝕬𝕾𝕯𝕱𝕲𝕳𝕵𝕶𝕷𝖅𝖃𝕮𝖁𝕭𝕹𝕸1234567890",
+                "𝓆𝓌𝑒𝓇𝓉𝓎𝓊𝒾𝑜𝓅𝒶𝓈𝒹𝒻𝑔𝒽𝒿𝓀𝓁𝓏𝓍𝒸𝓋𝒷𝓃𝓂𝒬𝒲𝐸𝑅𝒯𝒴𝒰𝐼𝒪𝒫𝒜𝒮𝒟𝐹𝒢𝐻𝒥𝒦𝐿𝒵𝒳𝒞𝒱𝐵𝒩𝑀𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢",
+                "𝓺𝔀𝓮𝓻𝓽𝔂𝓾𝓲𝓸𝓹𝓪𝓼𝓭𝓯𝓰𝓱𝓳𝓴𝓵𝔃𝔁𝓬𝓿𝓫𝓷𝓶𝓠𝓦𝓔𝓡𝓣𝓨𝓤𝓘𝓞𝓟𝓐𝓢𝓓𝓕𝓖𝓗𝓙𝓚𝓛𝓩𝓧𝓒𝓥𝓑𝓝𝓜1234567890",
+                "𝕢𝕨𝕖𝕣𝕥𝕪𝕦𝕚𝕠𝕡𝕒𝕤𝕕𝕗𝕘𝕙𝕛𝕜𝕝𝕫𝕩𝕔𝕧𝕓𝕟𝕞ℚ𝕎𝔼ℝ𝕋𝕐𝕌𝕀𝕆ℙ𝔸𝕊𝔻𝔽𝔾ℍ𝕁𝕂𝕃ℤ𝕏ℂ𝕍𝔹ℕ𝕄𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡𝟘",
+                "ｑｗｅｒｔｙｕｉｏｐａｓｄｆｇｈｊｋｌｚｘｃｖｂｎｍＱＷＥＲＴＹＵＩＯＰＡＳＤＦＧＨＪＫＬＺＸＣＶＢＮＭ１２３４５６７８９０",
+                "ꆰꅏꍟꋪ꓄ꌩꀎꀤꂦꉣꍏꌗꀸꎇꁅꃅꀭꀘ꒒ꁴꊼꉓꃴꌃꈤꂵꆰꅏꍟꋪ꓄ꌩꀎꀤꂦꉣꍏꌗꀸꎇꁅꃅꀭꀘ꒒ꁴꊼꉓꃴꌃꈤꂵ1234567890",
+                "​🇶​​🇼​​🇪​​🇷​​🇹​​🇾​​🇺​​🇮​​🇴​​🇵​​🇦​​🇸​​🇩​​🇫​​🇬​​🇭​​🇯​​🇰​​🇱​​🇿​​🇽​​🇨​​🇻​​🇧​​🇳​​🇲​​🇶​​🇼​​🇪​​🇷​​🇹​​🇾​​🇺​​🇮​​🇴​​🇵​​🇦​​🇸​​🇩​​🇫​​🇬​​🇭​​🇯​​🇰​​🇱​​🇿​​🇽​​🇨​​🇻​​🇧​​🇳​​🇲​1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣0️⃣",
+                "𝐪𝐰𝐞𝐫𝐭𝐲𝐮𝐢𝐨𝐩𝐚𝐬𝐝𝐟𝐠𝐡𝐣𝐤𝐥𝐳𝐱𝐜𝐯𝐛𝐧𝐦𝐐𝐖𝐄𝐑𝐓𝐘𝐔𝐈𝐎𝐏𝐀𝐒𝐃𝐅𝐆𝐇𝐉𝐊𝐋𝐙𝐗𝐂𝐕𝐁𝐍𝐌𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎",
+                "𝗾𝘄𝗲𝗿𝘁𝘆𝘂𝗶𝗼𝗽𝗮𝘀𝗱𝗳𝗴𝗵𝗷𝗸𝗹𝘇𝘅𝗰𝘃𝗯𝗻𝗺𝗤𝗪𝗘𝗥𝗧𝗬𝗨𝗜𝗢𝗣𝗔𝗦𝗗𝗙𝗚𝗛𝗝𝗞𝗟𝗭𝗫𝗖𝗩𝗕𝗡𝗠𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵𝟬",
+                "𝙦𝙬𝙚𝙧𝙩𝙮𝙪𝙞𝙤𝙥𝙖𝙨𝙙𝙛𝙜𝙝𝙟𝙠𝙡𝙯𝙭𝙘𝙫𝙗𝙣𝙢𝙌𝙒𝙀𝙍𝙏𝙔𝙐𝙄𝙊𝙋𝘼𝙎𝘿𝙁𝙂𝙃𝙅𝙆𝙇𝙕𝙓𝘾𝙑𝘽𝙉𝙈1234567890",
+            ];
+
+            document.getElementById("outputTextWrap").innerHTML = "";
+            for (let u = 0; u < outputMaps.length; u++) {
+                var output = "<div class='outputTextBlock'><textarea class='outputText' id='output-" + u + "'>";
+                for (var i = 0; i < input.length; i++) {
+                    var char = input.charAt(i);
+                    var index = inputMap.indexOf(char);
+                    if (index !== -1) {
+                        output += Array.from(outputMaps[u])[index];
+                    } else {
+                        output += char;
+                    }
+                }
+                output += "</textarea><div class='copyBtn' onclick='copyText(" + u + ")'><div class='copyBtnText'>🗐</div></div></div>"
+                document.getElementById("outputTextWrap").innerHTML += output;
+            }
+        }
+
+        convertText()
+    </script>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/gh/OneLevelStudio/OneLevelJS/onelevel.js"></script>
+</body>
+
+</html>
