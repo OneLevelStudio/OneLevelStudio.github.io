@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Unicode Text Generator</title>
     <link rel="icon" type="image/png" href="./assets/favicon.png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -52,6 +52,7 @@
         .outputText {
             margin-bottom: 10px;
             height: 100px;
+            padding-right: 72px;
         }
 
         .copyBtn {
@@ -59,12 +60,11 @@
             right: 0;
             top: 0;
             /* background: hsl(0, 0%, 85%, 50%); */
-            height: 100%;
+            height: calc(100% - 16px);
             display: flex;
             text-align: center;
             align-items: center;
             padding: 0 16px;
-            padding-bottom: 18px;
         }
 
         .copyBtnText {
@@ -77,7 +77,7 @@
             border-radius: 4px;
             cursor: pointer;
             transition: all ease 0.3s;
-            opacity: 0.5;
+            opacity: 0.8;
         }
 
         .copyBtnText:hover {
@@ -90,10 +90,7 @@
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4" style="padding: 16px;">
-            <textarea id="inputText" placeholder="Your input text here..." oninput="convertText()">
-                Xin chào bạn
-                Mình là website chuyển đổi font chữ hihi
-            </textarea>
+            <textarea id="inputText" placeholder="Input your text here..." oninput="convertText()"></textarea>
             <div id="outputTextWrap"></div>
         </div>
         <div class="col-4"></div>
@@ -105,26 +102,24 @@
             copytext.select();
             copytext.setSelectionRange(0, 99999); // For mobile devices
             navigator.clipboard.writeText(copytext.value);
-            // alert("Copied the text: " + copytext.value);
         }
 
         function convertText() {
             var input = document.getElementById("inputText").value;
-            const inputMap = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+            const inputMap = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!?";
             const outputMaps = [
-                "𝘲𝘸𝘦𝘳𝘵𝘺𝘶𝘪𝘰𝘱𝘢𝘴𝘥𝘧𝘨𝘩𝘫𝘬𝘭𝘻𝘹𝘤𝘷𝘣𝘯𝘮𝘘𝘞𝘌𝘙𝘛𝘠𝘜𝘐𝘖𝘗𝘈𝘚𝘋𝘍𝘎𝘏𝘑𝘒𝘓𝘡𝘟𝘊𝘝𝘉𝘕𝘔𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢",
-                "𝚚𝚠𝚎𝚛𝚝𝚢𝚞𝚒𝚘𝚙𝚊𝚜𝚍𝚏𝚐𝚑𝚓𝚔𝚕𝚣𝚡𝚌𝚟𝚋𝚗𝚖𝚀𝚆𝙴𝚁𝚃𝚈𝚄𝙸𝙾𝙿𝙰𝚂𝙳𝙵𝙶𝙷𝙹𝙺𝙻𝚉𝚇𝙲𝚅𝙱𝙽𝙼𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿𝟶",
-                "𝔮𝔴𝔢𝔯𝔱𝔶𝔲𝔦𝔬𝔭𝔞𝔰𝔡𝔣𝔤𝔥𝔧𝔨𝔩𝔷𝔵𝔠𝔳𝔟𝔫𝔪𝔔𝔚𝔈ℜ𝔗𝔜𝔘ℑ𝔒𝔓𝔄𝔖𝔇𝔉𝔊ℌ𝔍𝔎𝔏ℨ𝔛ℭ𝔙𝔅𝔑𝔐1234567890",
-                "𝖖𝖜𝖊𝖗𝖙𝖞𝖚𝖎𝖔𝖕𝖆𝖘𝖉𝖋𝖌𝖍𝖏𝖐𝖑𝖟𝖝𝖈𝖛𝖇𝖓𝖒𝕼𝖂𝕰𝕽𝕿𝖄𝖀𝕴𝕺𝕻𝕬𝕾𝕯𝕱𝕲𝕳𝕵𝕶𝕷𝖅𝖃𝕮𝖁𝕭𝕹𝕸1234567890",
-                "𝓆𝓌𝑒𝓇𝓉𝓎𝓊𝒾𝑜𝓅𝒶𝓈𝒹𝒻𝑔𝒽𝒿𝓀𝓁𝓏𝓍𝒸𝓋𝒷𝓃𝓂𝒬𝒲𝐸𝑅𝒯𝒴𝒰𝐼𝒪𝒫𝒜𝒮𝒟𝐹𝒢𝐻𝒥𝒦𝐿𝒵𝒳𝒞𝒱𝐵𝒩𝑀𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢",
-                "𝓺𝔀𝓮𝓻𝓽𝔂𝓾𝓲𝓸𝓹𝓪𝓼𝓭𝓯𝓰𝓱𝓳𝓴𝓵𝔃𝔁𝓬𝓿𝓫𝓷𝓶𝓠𝓦𝓔𝓡𝓣𝓨𝓤𝓘𝓞𝓟𝓐𝓢𝓓𝓕𝓖𝓗𝓙𝓚𝓛𝓩𝓧𝓒𝓥𝓑𝓝𝓜1234567890",
-                "𝕢𝕨𝕖𝕣𝕥𝕪𝕦𝕚𝕠𝕡𝕒𝕤𝕕𝕗𝕘𝕙𝕛𝕜𝕝𝕫𝕩𝕔𝕧𝕓𝕟𝕞ℚ𝕎𝔼ℝ𝕋𝕐𝕌𝕀𝕆ℙ𝔸𝕊𝔻𝔽𝔾ℍ𝕁𝕂𝕃ℤ𝕏ℂ𝕍𝔹ℕ𝕄𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡𝟘",
-                "ｑｗｅｒｔｙｕｉｏｐａｓｄｆｇｈｊｋｌｚｘｃｖｂｎｍＱＷＥＲＴＹＵＩＯＰＡＳＤＦＧＨＪＫＬＺＸＣＶＢＮＭ１２３４５６７８９０",
-                "ꆰꅏꍟꋪ꓄ꌩꀎꀤꂦꉣꍏꌗꀸꎇꁅꃅꀭꀘ꒒ꁴꊼꉓꃴꌃꈤꂵꆰꅏꍟꋪ꓄ꌩꀎꀤꂦꉣꍏꌗꀸꎇꁅꃅꀭꀘ꒒ꁴꊼꉓꃴꌃꈤꂵ1234567890",
-                "​🇶​​🇼​​🇪​​🇷​​🇹​​🇾​​🇺​​🇮​​🇴​​🇵​​🇦​​🇸​​🇩​​🇫​​🇬​​🇭​​🇯​​🇰​​🇱​​🇿​​🇽​​🇨​​🇻​​🇧​​🇳​​🇲​​🇶​​🇼​​🇪​​🇷​​🇹​​🇾​​🇺​​🇮​​🇴​​🇵​​🇦​​🇸​​🇩​​🇫​​🇬​​🇭​​🇯​​🇰​​🇱​​🇿​​🇽​​🇨​​🇻​​🇧​​🇳​​🇲​1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣0️⃣",
-                "𝐪𝐰𝐞𝐫𝐭𝐲𝐮𝐢𝐨𝐩𝐚𝐬𝐝𝐟𝐠𝐡𝐣𝐤𝐥𝐳𝐱𝐜𝐯𝐛𝐧𝐦𝐐𝐖𝐄𝐑𝐓𝐘𝐔𝐈𝐎𝐏𝐀𝐒𝐃𝐅𝐆𝐇𝐉𝐊𝐋𝐙𝐗𝐂𝐕𝐁𝐍𝐌𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎",
-                "𝗾𝘄𝗲𝗿𝘁𝘆𝘂𝗶𝗼𝗽𝗮𝘀𝗱𝗳𝗴𝗵𝗷𝗸𝗹𝘇𝘅𝗰𝘃𝗯𝗻𝗺𝗤𝗪𝗘𝗥𝗧𝗬𝗨𝗜𝗢𝗣𝗔𝗦𝗗𝗙𝗚𝗛𝗝𝗞𝗟𝗭𝗫𝗖𝗩𝗕𝗡𝗠𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵𝟬",
-                "𝙦𝙬𝙚𝙧𝙩𝙮𝙪𝙞𝙤𝙥𝙖𝙨𝙙𝙛𝙜𝙝𝙟𝙠𝙡𝙯𝙭𝙘𝙫𝙗𝙣𝙢𝙌𝙒𝙀𝙍𝙏𝙔𝙐𝙄𝙊𝙋𝘼𝙎𝘿𝙁𝙂𝙃𝙅𝙆𝙇𝙕𝙓𝘾𝙑𝘽𝙉𝙈1234567890",
+                "𝘲𝘸𝘦𝘳𝘵𝘺𝘶𝘪𝘰𝘱𝘢𝘴𝘥𝘧𝘨𝘩𝘫𝘬𝘭𝘻𝘹𝘤𝘷𝘣𝘯𝘮𝘘𝘞𝘌𝘙𝘛𝘠𝘜𝘐𝘖𝘗𝘈𝘚𝘋𝘍𝘎𝘏𝘑𝘒𝘓𝘡𝘟𝘊𝘝𝘉𝘕𝘔𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢！？",
+                "𝗾𝘄𝗲𝗿𝘁𝘆𝘂𝗶𝗼𝗽𝗮𝘀𝗱𝗳𝗴𝗵𝗷𝗸𝗹𝘇𝘅𝗰𝘃𝗯𝗻𝗺𝗤𝗪𝗘𝗥𝗧𝗬𝗨𝗜𝗢𝗣𝗔𝗦𝗗𝗙𝗚𝗛𝗝𝗞𝗟𝗭𝗫𝗖𝗩𝗕𝗡𝗠𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵𝟬！？",
+                "𝙦𝙬𝙚𝙧𝙩𝙮𝙪𝙞𝙤𝙥𝙖𝙨𝙙𝙛𝙜𝙝𝙟𝙠𝙡𝙯𝙭𝙘𝙫𝙗𝙣𝙢𝙌𝙒𝙀𝙍𝙏𝙔𝙐𝙄𝙊𝙋𝘼𝙎𝘿𝙁𝙂𝙃𝙅𝙆𝙇𝙕𝙓𝘾𝙑𝘽𝙉𝙈𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵𝟬！？",
+                "𝐪𝐰𝐞𝐫𝐭𝐲𝐮𝐢𝐨𝐩𝐚𝐬𝐝𝐟𝐠𝐡𝐣𝐤𝐥𝐳𝐱𝐜𝐯𝐛𝐧𝐦𝐐𝐖𝐄𝐑𝐓𝐘𝐔𝐈𝐎𝐏𝐀𝐒𝐃𝐅𝐆𝐇𝐉𝐊𝐋𝐙𝐗𝐂𝐕𝐁𝐍𝐌𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎！？",
+                "𝒒𝒘𝒆𝒓𝒕𝒚𝒖𝒊𝒐𝒑𝒂𝒔𝒅𝒇𝒈𝒉𝒋𝒌𝒍𝒛𝒙𝒄𝒗𝒃𝒏𝒎𝑸𝑾𝑬𝑹𝑻𝒀𝑼𝑰𝑶𝑷𝑨𝑺𝑫𝑭𝑮𝑯𝑱𝑲𝑳𝒁𝑿𝑪𝑽𝑩𝑵𝑴𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎！？",
+                "𝚚𝚠𝚎𝚛𝚝𝚢𝚞𝚒𝚘𝚙𝚊𝚜𝚍𝚏𝚐𝚑𝚓𝚔𝚕𝚣𝚡𝚌𝚟𝚋𝚗𝚖𝚀𝚆𝙴𝚁𝚃𝚈𝚄𝙸𝙾𝙿𝙰𝚂𝙳𝙵𝙶𝙷𝙹𝙺𝙻𝚉𝚇𝙲𝚅𝙱𝙽𝙼𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿𝟶！？",
+                "𝕢𝕨𝕖𝕣𝕥𝕪𝕦𝕚𝕠𝕡𝕒𝕤𝕕𝕗𝕘𝕙𝕛𝕜𝕝𝕫𝕩𝕔𝕧𝕓𝕟𝕞ℚ𝕎𝔼ℝ𝕋𝕐𝕌𝕀𝕆ℙ𝔸𝕊𝔻𝔽𝔾ℍ𝕁𝕂𝕃ℤ𝕏ℂ𝕍𝔹ℕ𝕄𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡𝟘！？",
+                "𝔮𝔴𝔢𝔯𝔱𝔶𝔲𝔦𝔬𝔭𝔞𝔰𝔡𝔣𝔤𝔥𝔧𝔨𝔩𝔷𝔵𝔠𝔳𝔟𝔫𝔪𝔔𝔚𝔈ℜ𝔗𝔜𝔘ℑ𝔒𝔓𝔄𝔖𝔇𝔉𝔊ℌ𝔍𝔎𝔏ℨ𝔛ℭ𝔙𝔅𝔑𝔐𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡𝟘！？",
+                "𝖖𝖜𝖊𝖗𝖙𝖞𝖚𝖎𝖔𝖕𝖆𝖘𝖉𝖋𝖌𝖍𝖏𝖐𝖑𝖟𝖝𝖈𝖛𝖇𝖓𝖒𝕼𝖂𝕰𝕽𝕿𝖄𝖀𝕴𝕺𝕻𝕬𝕾𝕯𝕱𝕲𝕳𝕵𝕶𝕷𝖅𝖃𝕮𝖁𝕭𝕹𝕸𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡𝟘！？",
+                "𝓆𝓌𝑒𝓇𝓉𝓎𝓊𝒾𝑜𝓅𝒶𝓈𝒹𝒻𝑔𝒽𝒿𝓀𝓁𝓏𝓍𝒸𝓋𝒷𝓃𝓂𝒬𝒲𝐸𝑅𝒯𝒴𝒰𝐼𝒪𝒫𝒜𝒮𝒟𝐹𝒢𝐻𝒥𝒦𝐿𝒵𝒳𝒞𝒱𝐵𝒩𝑀𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢！？",
+                "𝓺𝔀𝓮𝓻𝓽𝔂𝓾𝓲𝓸𝓹𝓪𝓼𝓭𝓯𝓰𝓱𝓳𝓴𝓵𝔃𝔁𝓬𝓿𝓫𝓷𝓶𝓠𝓦𝓔𝓡𝓣𝓨𝓤𝓘𝓞𝓟𝓐𝓢𝓓𝓕𝓖𝓗𝓙𝓚𝓛𝓩𝓧𝓒𝓥𝓑𝓝𝓜𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗𝟎！？",
+                "ｑｗｅｒｔｙｕｉｏｐａｓｄｆｇｈｊｋｌｚｘｃｖｂｎｍＱＷＥＲＴＹＵＩＯＰＡＳＤＦＧＨＪＫＬＺＸＣＶＢＮＭ１２３４５６７８９０！？",
             ];
 
             document.getElementById("outputTextWrap").innerHTML = "";
@@ -139,7 +134,7 @@
                         output += char;
                     }
                 }
-                output += "</textarea><div class='copyBtn' onclick='copyText(" + u + ")'><div class='copyBtnText'>🗐</div></div></div>"
+                output += "</textarea><div class='copyBtn' onclick='copyText(" + u + ")'><div class='copyBtnText'>📋</div></div></div>"
                 document.getElementById("outputTextWrap").innerHTML += output;
             }
         }
